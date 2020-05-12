@@ -9,11 +9,11 @@ export default class MyComponent extends Component {
   };
 
   componentDidMount() {
-    axios.get("http://quotes.stormconsultancy.co.uk/random.json").then(
+    axios.get("https://opentdb.com/api.php?amount=1&category=19&difficulty=medium&type=boolean").then(
       result => {
         this.setState({
           isLoaded: true,
-          quote: result.data
+          questions: result.data
         });
       },
       // Note: it's important to handle errors here
@@ -29,14 +29,16 @@ export default class MyComponent extends Component {
   }
 
   render() {
-    const { error, isLoaded, quote } = this.state;
+    const { error, isLoaded, questions } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
       return (
-        <p> {quote.quote} by {quote.author}</p>
+        <div>
+        <p> {questions.results[0].question} ( {questions.results[0].difficulty} )</p>
+        </div>
       );
     }
   }
