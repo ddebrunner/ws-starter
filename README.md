@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ec913a73-92cc-4c2c-be08-0abeb3a1a9ab/deploy-status)](https://app.netlify.com/sites/objective-blackwell-7689e3/deploys)
+
 # gatsby-starter-blog
 Gatsby starter for creating a blog
 
