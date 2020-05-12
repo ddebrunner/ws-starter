@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
-export default class MyComponent extends Component {
+export default class DanComponent extends Component {
   state = {
     error: null,
     isLoaded: false,
@@ -37,6 +37,7 @@ export default class MyComponent extends Component {
     } else {
       return (
         <div>
+        <h2>A question</h2>
         <p> {questions.results[0].question} ( {questions.results[0].difficulty} )</p>
         </div>
       );
