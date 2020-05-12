@@ -36,7 +36,7 @@ export default class MyComponent extends Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <p> {quote.quote} by {quote.author}</p?
+        <p> {quote.quote} by {quote.author}</p>
       );
     }
   }
