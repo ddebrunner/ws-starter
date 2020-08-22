@@ -19,13 +19,7 @@ exports.handler = async (event, context) => {
     method: 'POST',
     body: event.body,
   })
-    .then((response) => {
-      console.log('RESPONSE')
-      console.log(response.json())
-      console.log('---')
-      console.log(response.statusCode)
-      return response.json()
-    })
+    .then((response) => response.json())
     .then((data) => ({
       statusCode: 200,
       body: data,
