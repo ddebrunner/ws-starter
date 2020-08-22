@@ -7,9 +7,9 @@ exports.handler = async (event, context) => {
     return { statusCode: 405, body: 'Method Not Allowed' }
   }
 
-  console.log('BODY')
-  console.log(event.body)
-  console.log('---')
+  //console.log('BODY')
+  //console.log(event.body)
+  //console.log('---')
 
   return fetch(process.env.SZ_DM_URL, {
     headers: {
@@ -17,7 +17,7 @@ exports.handler = async (event, context) => {
       Authorization: 'apikey ' + process.env.SZ_API_KEY,
     },
     method: 'POST',
-    body: event.body,
+    body: JSON.stringify(event.body),
   })
     .then((response) => response.json())
     .then((data) => ({
@@ -25,7 +25,7 @@ exports.handler = async (event, context) => {
       body: data,
     }))
     .catch((error) => ({
-      statusCode: 422,
+      statusCode: error.statusCode,
       body: `Oops! Something went wrong. ${error}`,
     }))
 }
