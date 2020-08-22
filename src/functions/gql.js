@@ -1,10 +1,15 @@
-import fetch from 'node-fetch'
+'use strict'
+const fetch = require('node-fetch')
 
 exports.handler = async (event, context) => {
   // Only allow POST
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' }
   }
+
+  console.log('BODY')
+  console.log(event.body)
+  console.log('---')
 
   return fetch(process.env.SZ_DM_URL, {
     headers: {
