@@ -5,9 +5,10 @@ const API_ENDPOINT = 'https://icanhazdadjoke.com/'
 
 exports.handler = async (event, context) => {
   return fetch(API_ENDPOINT, { headers: { Accept: 'application/json' } })
-    .then((response) => ({
-      statusCode: response.statusCode || 200,
-      body: response.json().joke,
+    .then((response) => response.json())
+    .then((data) => ({
+      statusCode: 200,
+      body: data.joke,
     }))
     .catch((error) => ({ statusCode: 422, body: String(error) }))
 }
